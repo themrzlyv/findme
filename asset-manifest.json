@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/findme/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/findme/static/js/main.655a305b.chunk.js",
+    "main.js.map": "/findme/static/js/main.655a305b.chunk.js.map",
+    "runtime-main.js": "/findme/static/js/runtime-main.e363657a.js",
+    "runtime-main.js.map": "/findme/static/js/runtime-main.e363657a.js.map",
+    "static/js/2.01d77845.chunk.js": "/findme/static/js/2.01d77845.chunk.js",
+    "static/js/2.01d77845.chunk.js.map": "/findme/static/js/2.01d77845.chunk.js.map",
+    "static/js/3.ef88c688.chunk.js": "/findme/static/js/3.ef88c688.chunk.js",
+    "static/js/3.ef88c688.chunk.js.map": "/findme/static/js/3.ef88c688.chunk.js.map",
+    "index.html": "/findme/index.html",
+    "service-worker.js": "/findme/service-worker.js",
+    "service-worker.js.map": "/findme/service-worker.js.map",
+    "static/css/main.8c8b27cf.chunk.css.map": "/findme/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.01d77845.chunk.js.LICENSE.txt": "/findme/static/js/2.01d77845.chunk.js.LICENSE.txt",
+    "static/media/logo.103b5fa1.svg": "/findme/static/media/logo.103b5fa1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e363657a.js",
+    "static/js/2.01d77845.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.655a305b.chunk.js"
+  ]
+}
