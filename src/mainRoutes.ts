@@ -1,5 +1,7 @@
 const mainRoutes = {
-  home: '/findme'
+  home: '/findme',
+  post: '/findme/post',
+  createPost: '/findme/post/create',
 }
 
 export default mainRoutes;
