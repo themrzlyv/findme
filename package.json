@@ -2,7 +2,7 @@
   "name": "findme",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://themrzlyv.github.io/findme",
+  "homepage": "https://themrzlyv.github.io/findme/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.11.4",

@@ -5,9 +5,9 @@ interface iProps {
 
 const Home:React.FC<iProps> = (): JSX.Element => {
     return (
-        <>
-        our home page
-        </>
+        <div>
+            our home page
+        </div>
     );
 }
 
