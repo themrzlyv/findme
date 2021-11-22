@@ -1,5 +1,5 @@
 const mainRoutes = {
-  home: '/'
+  home: '/findme'
 }
 
 export default mainRoutes;
