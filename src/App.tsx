@@ -1,13 +1,13 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import mainRoutes from './mainRoutes';
+import Home from './ui/Home';
 
-interface iProps {
-}
-
-const App:React.FC<iProps> = (): JSX.Element => {
+const App:React.FC = () => {
     return (
-        <>
-          hey guys
-        </>
+        <Routes>
+          <Route element={<Home />} path={mainRoutes.home} />
+        </Routes>
     );
 }
 
