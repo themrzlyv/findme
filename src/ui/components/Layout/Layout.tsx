@@ -1,19 +1,26 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { AppBar, Grid, Toolbar, Typography } from '@mui/material';
 
-interface iProps {
-}
+interface iProps {}
 
-const Layout:React.FC<iProps> = ({ children }): JSX.Element => {
-    return (
-        <Grid  container>
-          <Grid item xs={12}>Navbar</Grid>
-          <Grid item xs={10}>
-            {children}
-          </Grid>
-          <Grid item xs={2}>Sidebar</Grid>
-        </Grid>
-    );
-}
+const Layout: React.FC<iProps> = ({ children }): JSX.Element => {
+  return (
+    <Grid container maxWidth="lg" mx="auto">
+      <Grid item xs={12}>
+        <AppBar position="static" color="primary">
+          <Toolbar>
+            <Typography variant="body2">FindMe</Typography>
+          </Toolbar>
+        </AppBar>
+      </Grid>
+      <Grid item xs={10}>
+        {children}
+      </Grid>
+      <Grid item xs={2}>
+        Sidebar
+      </Grid>
+    </Grid>
+  );
+};
 
 export default Layout;

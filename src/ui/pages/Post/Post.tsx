@@ -6,7 +6,7 @@ import { CreatePost } from './pages/CreatePost';
 const Post:React.FC = () => {
     return (
         <Routes>
-            <Route path={mainRoutes.createPost} element={<CreatePost />} />
+            <Route  path={mainRoutes.createPost} element={<CreatePost />} />
         </Routes>
     );
 }
