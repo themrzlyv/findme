@@ -18,8 +18,20 @@ export const fetchPosts = (): Promise<iPost[]> => {
           .collection('posts')
           .get()
           .then((result) => result.docs)
-          .then((posts) => posts.map(post => post.data()))
+          .then((posts) => posts.map(post => ({ ...post.data(), id: post.id })))
           .then((result) => resolve(result as iPost[]))
+          .catch(err => reject(err));
+  });
+}
+
+export const fetchPost = (id: string): Promise<iPost> => {
+  return new Promise((resolve,reject) => {
+      firestore
+          .collection('posts')
+          .doc(id)
+          .get()
+          .then((result) => result.exists ? result.data() : null)
+          .then((result) => resolve(result as iPost))
           .catch(err => reject(err));
   });
 }

@@ -7,6 +7,7 @@ export interface iCreatePost {
 }
 
 export interface iPost {
+  id: string;
   title: string;
   content: string;
   tags: string[];
@@ -16,4 +17,7 @@ export interface iPost {
 
 export interface iPostState {
   posts: iPost[];
+  post: iPost | null;
+  isLoading: boolean;
+  error: string | null;
 }

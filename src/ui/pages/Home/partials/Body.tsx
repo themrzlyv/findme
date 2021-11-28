@@ -12,7 +12,7 @@ const Body: React.FC<iProps> = (): JSX.Element => {
 
   useEffect(() => {
     fetchPosts().then((posts) => dispatch(getAllPosts(posts)));
-  }, []);
+  }, [dispatch]);
 
   return (
     <Box component="div" display="flex" padding={2}>

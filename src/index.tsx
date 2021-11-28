@@ -12,12 +12,15 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import store from './Global/Store';
 import { theme } from './Theme/theme';
+import ErrorBoundary from './ui/components/ErrorBoundary';
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <App />
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
         <ToastContainer
           theme="colored"
           position="bottom-right"
