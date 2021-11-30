@@ -8,6 +8,7 @@ import { Layout } from './ui/components/Layout';
 import Home from './ui/pages/Home';
 
 const Post = lazy(() => import('./ui/pages/Post'));
+const Authentication = lazy(() => import('./ui/pages/Authentication'));
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
       <Suspense fallback={<FallBackUi />}>
         <Routes>
           <Route element={<Home />} path={mainRoutes.home} />
+          <Route element={<Authentication />} path={mainRoutes.auth} />
           <Route element={<Post />} path={mainRoutes.post} />
         </Routes>
       </Suspense>

@@ -15,6 +15,8 @@ const useStyles = makeStyles((theme: Theme) => ({
       top: 0,
       left: 0,
       backgroundColor: 'black',
+      borderTopLeftRadius: '4px',
+      borderTopRightRadius: '4px',
     },
   },
 }));
@@ -23,8 +25,8 @@ const UserAvatar: React.FC<iProps> = (): JSX.Element => {
   const classes = useStyles();
   return (
     <>
-      <Box component="div" display="flex" flexDirection="column" height="100%" flex={3}>
-        <Box display="flex" flexDirection="column" position="sticky" top={0}>
+      <Box component="div" height="100%" border={0} flex={3}>
+        <Box display="flex" flexDirection="column" position="sticky" top={78}>
           <Paper elevation={2}>
             <Box component="div" display="flex" flexDirection="column">
               <Box

@@ -17,5 +17,10 @@ export const theme = createTheme({
         }
       }
     }
+  },
+  mixins: {
+    toolbar: {
+      height: '64px'
+    }
   }
 });
