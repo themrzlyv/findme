@@ -1,5 +1,5 @@
 
-interface iSocial {
+export interface iSocial {
   name: 'facebook' | 'instagram' | 'twitter' | 'linkedin';
   link: string;
 }

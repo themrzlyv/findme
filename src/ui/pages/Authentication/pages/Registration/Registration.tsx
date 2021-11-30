@@ -1,6 +1,6 @@
 import { Box } from '@mui/system';
 import React, { useState, useEffect } from 'react';
-import { iRegistrationForm, socialNames } from '../../common/@types';
+import { iRegistrationForm, iSocial } from '../../common/@types';
 import {
   Typography,
   Paper,
@@ -9,6 +9,7 @@ import {
   InputAdornment,
   IconButton,
   Checkbox,
+  FormControlLabel,
 } from '@mui/material';
 import UploadButton from '../../../../../components/UploadButton';
 
@@ -28,8 +29,11 @@ const Registration: React.FC = (): JSX.Element => {
   const { onFileChange, fileName, fileUrl, progress, loading, removeFile } = useFileUpload();
 
   const socials: iSocial[] = [
-      { name: 'facebook', link: ''},
-      {name: 'instagram', link: ''}, {name: 'twitter', link:''},{name: 'linkedin', link: ''}];'];
+    { name: 'facebook', link: '' },
+    { name: 'instagram', link: '' },
+    { name: 'twitter', link: '' },
+    { name: 'linkedin', link: '' },
+  ];
 
   const [form, setForm] = useState<iRegistrationForm>({
     name: '',
@@ -63,6 +67,8 @@ const Registration: React.FC = (): JSX.Element => {
   useEffect(() => {
     setForm((prev) => ({ ...prev, image: fileUrl }));
   }, [fileUrl]);
+
+  console.log(form);
 
   return (
     <>
@@ -194,7 +200,7 @@ const Registration: React.FC = (): JSX.Element => {
           <TextField
             label="Bio"
             type="text"
-            name="bio"
+            name="Bio"
             variant="standard"
             onChange={handleChange}
             sx={{ marginBottom: '1rem', marginX: 'auto' }}
@@ -215,21 +221,76 @@ const Registration: React.FC = (): JSX.Element => {
               }
             }}
           />
+          <Typography
+            variant="subtitle1"
+            fontWeight="bold"
+            sx={{ width: '50%', marginBottom: '1rem', marginX: 'auto' }}
+          >
+            Select Social
+          </Typography>
+
           {socials.map((social) => (
-            <Box key={social} component="div" display="flex">
-              <Checkbox
-                // checked={form.socials}
-                value={social}
-                onChange={(social) => {
+            <Box
+              key={social.name}
+              component="div"
+              display="flex"
+              sx={{ width: '50%', marginBottom: '1rem', marginX: 'auto' }}
+            >
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={form.socials.find((s) => s.name === social.name) !== undefined}
+                    value={social.name}
+                    onChange={() => {
+                      if (form.socials.find((s) => s.name === social.name) !== undefined) {
+                        return setForm((prev) => ({
+                          ...prev,
+                          socials: prev.socials.filter((s) => s.name !== social.name),
+                        }));
+                      }
+                      setForm((prev) => ({
+                        ...prev,
+                        socials: [...prev.socials, { name: `${social.name}`, link: '' }],
+                      }));
+                    }}
+                    inputProps={{ 'aria-label': 'controlled' }}
+                  />
+                }
+                label={social.name}
+              />
+              <TextField
+                placeholder="https://"
+                type="url"
+                name="link"
+                variant="standard"
+                value={form.socials.find((s) => s.name === social.name)?.link ?? ''}
+                onChange={({ target }) => {
+                  const { value } = target;
                   setForm((prev) => ({
                     ...prev,
-                    socials: [...prev.socials, { name: `${social}`, link: '' }],
+                    socials: prev.socials.map((s) => {
+                      if (s.name === social.name) {
+                        return { ...s, link: value };
+                      }
+                      return s;
+                    }),
                   }));
                 }}
-                inputProps={{ 'aria-label': 'controlled' }}
+                required
+                disabled={form.socials.find((s) => s.name === social.name) === undefined}
               />
             </Box>
           ))}
+
+          <TextField
+            label="Website"
+            type="url"
+            name="webSite"
+            variant="standard"
+            onChange={handleChange}
+            sx={{ marginBottom: '1em', marginX: 'auto' }}
+            required
+          />
 
           <Button sx={{ width: '50%', margin: '1em auto' }} variant="outlined" onClick={handleSave}>
             Save
